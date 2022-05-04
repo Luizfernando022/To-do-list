@@ -99,7 +99,7 @@ function createDivOptions(content) {
 
 function createImg(content) {
   let img = document.createElement("img");
-  img.src = "/images/Recycle-Bin-30.png";
+  img.src = "./images/Recycle-Bin-30.png";
   img.id = "bin";
   content.appendChild(img);
 }
