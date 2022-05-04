@@ -134,19 +134,18 @@ input {
 }
 
 @keyframes effectRemove {
-  0% {}
-  50%{
-   transform: rotateZ(5deg);
-   opacity: 1;
+  0% {
   }
-  100%{
+  50% {
+    transform: rotateZ(5deg);
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
   }
-
 }
 
-
-img{
+img {
   cursor: pointer;
 }
 
@@ -157,13 +156,13 @@ img::selection {
 p {
   text-shadow: 0px 0px 10px white;
 }
-.divP{
-    width: 80%;
-    max-height: auto;
-    overflow: hidden;
-    background-color: red;
+.divP {
+  width: 80%;
+  max-height: auto;
+  overflow: hidden;
+  /* background-color: red; */
 }
-headeR{
+headeR {
   color: white;
   display: flex;
   width: 80%;
@@ -171,10 +170,55 @@ headeR{
   justify-content: space-around;
 }
 
-@media screem and (max-width:765px){
-
-  .content{
-    background-color: blue;
+@media screen and (max-width: 765px) {
+  #main {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #head {
+    width: 100%;
+    flex-direction: column;
+    row-gap: 10px;
+    height: auto;
+  }
+  input
+  button {
+    height: 20px;
+    padding: 5px;
+  }
+  input::placeholder{
+    font-size:calc(0.5em + 1.5vw);
+  }
+  button {
+    display: flex;
+    align-items: center;
   }
 
+  .content {
+    width: calc(100% - 20px);
+  }
+  .divP {
+    font-size: calc(0.5em + 2vw);
+  }
+  #options {
+    position: static;
+  }
+  #bin {
+    width: 20px;
+  }
+  .toggle {
+    width: 30px;
+    height: 15px;
+  }
+  .icon {
+    width: 14px;
+    height: 14px;
+  }
+  header {
+    flex-direction: column;
+    width: calc(100%);
+    font-size:calc(0.5em + 2vw);
+    text-align: center;
+  }
 }
