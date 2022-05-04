@@ -1,6 +1,7 @@
-let TaskCount = 0
 
 onload = () =>{
+
+
 
   main.innerHTML = localStorage.getItem('tasks')
   if(main != ""){
@@ -14,6 +15,7 @@ onload = () =>{
     });
   });
   }
+  howManyTasks()
 
 }
 
@@ -21,6 +23,8 @@ function toggleAnimation() {
   if (this.style.backgroundColor != "lime") {
     this.style.backgroundColor = 'lime'
     this.children[0].style.animationName = "toggleOn";
+    this.children[0].dataset.check = 'on'
+    console.log(this.children[0])
   } else {
     this.style.backgroundColor = 'red'
     this.children[0].style.animationName = "toggleOff";
@@ -34,8 +38,6 @@ btn.addEventListener("click", createTask);
 
 
 function createTask() {
-
-  howManyTasks()
 
   let input = document.getElementsByTagName("input")[0];
   let main = document.getElementById("main");
@@ -66,12 +68,13 @@ function createTask() {
   localStorage.setItem('tasks',main.innerHTML)
   input.value = ""
   input.focus()
+  howManyTasks()
   }
 }
-let tasks = document.getElementById('task')
+
 function howManyTasks(){
-  TaskCount++
-  tasks.innerHTML = "Tasks: " + TaskCount
+  let task = document.getElementById('task')
+  task.innerHTML = `Tasks: ${main.children.length}`
 }
 
 function createContentOfContent(content, input) {
@@ -112,9 +115,8 @@ function createToggle(content) {
 }
 
 function clearTask(){
-  TaskCount--
-  tasks.innerHTML = "Tasks: " + TaskCount
   let elemento = this.parentElement.parentElement
   elemento.parentElement.removeChild(elemento)
+  howManyTasks()
   localStorage.setItem('tasks',main.innerHTML)
 }
