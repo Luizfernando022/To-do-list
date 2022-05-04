@@ -1,4 +1,4 @@
-
+let main = document.getElementById("main");
 onload = () =>{
 
 
@@ -23,12 +23,11 @@ function toggleAnimation() {
   if (this.style.backgroundColor != "lime") {
     this.style.backgroundColor = 'lime'
     this.children[0].style.animationName = "toggleOn";
-    this.children[0].dataset.check = 'on'
-    console.log(this.children[0])
   } else {
-    this.style.backgroundColor = 'red'
+    this.style.backgroundColor = 'rgb(25,26,26)'
     this.children[0].style.animationName = "toggleOff";
   }
+  saveTasks()
 }
 
 let btn = document.getElementsByTagName("button")[0];
@@ -40,7 +39,6 @@ btn.addEventListener("click", createTask);
 function createTask() {
 
   let input = document.getElementsByTagName("input")[0];
-  let main = document.getElementById("main");
   if (input.value == "") {
     alert("Informe uma tarefa");
   } else {
@@ -65,7 +63,7 @@ function createTask() {
     element.addEventListener('click',clearTask)
 });
 
-  localStorage.setItem('tasks',main.innerHTML)
+  saveTasks()
   input.value = ""
   input.focus()
   howManyTasks()
@@ -116,7 +114,22 @@ function createToggle(content) {
 
 function clearTask(){
   let elemento = this.parentElement.parentElement
+ effectBeforeRemoveChild(elemento)
+
+ setTimeout(()=>{
   elemento.parentElement.removeChild(elemento)
   howManyTasks()
+  saveTasks()
+ },1000)
+ 
+}
+function saveTasks(){
   localStorage.setItem('tasks',main.innerHTML)
+}
+
+ function effectBeforeRemoveChild(element){
+   element.style.animationDuration = '1000ms'
+   element.style.animationFillMode = "forwards"
+   element.style.animationTimingFunction = "cubic-bezier(0.075, 0.82, 0.165, 1)"
+  element.style.animationName = "effectRemove"
 }

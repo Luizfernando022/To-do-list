@@ -80,7 +80,7 @@ input {
   background-color: black;
   height: auto;
   margin: 10px;
-  width: 85%;
+  width: 90%;
   padding: 20px;
   color: white;
   display: flex;
@@ -102,7 +102,7 @@ input {
   width: 60px;
   border-radius: 25px;
   height: 30px;
-  background-color: red;
+  background-color: rgb(22, 22, 22);
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -132,6 +132,20 @@ input {
     transform: translateX(0%);
   }
 }
+
+@keyframes effectRemove {
+  0% {}
+  50%{
+   transform: rotateZ(5deg);
+   opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+
+}
+
+
 img{
   cursor: pointer;
 }
@@ -144,9 +158,10 @@ p {
   text-shadow: 0px 0px 10px white;
 }
 .divP{
-    width: 500px;
+    width: 80%;
     max-height: auto;
     overflow: hidden;
+    background-color: red;
 }
 headeR{
   color: white;
@@ -154,4 +169,12 @@ headeR{
   width: 80%;
   align-items: center;
   justify-content: space-around;
+}
+
+@media screem and (max-width:765px){
+
+  .content{
+    background-color: blue;
+  }
+
 }
