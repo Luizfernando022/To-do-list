@@ -161,6 +161,8 @@ p {
   max-height: auto;
   overflow: hidden;
   /* background-color: red; */
+  word-wrap:normal;
+  text-align: start;
 }
 headeR {
   color: white;
